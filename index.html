@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 style="text-align: center">JS-Handson-9 (DOM)</h1>
+    <hr />
+
+    <h3>1. Write the code to access element which is having id as "text"</h3>
+    <pre>
+        document.getElementById("text");
+    </pre>
+    <hr />
+
+    <h3>2. Write the code to access element which is having tag as "h1"</h3>
+    <pre>
+        document.getElementsByTagName("h1");
+    </pre>
+    <hr />
+
+    <h3>3. Write the code to access element which is having class as "box"</h3>
+    <pre>
+        document.getElementsByClassName("box");
+    </pre>
+    <hr />
+
+    <h3>4. Change the heading from "Hello" to "Hello World" using DOM functions</h3>
+    <pre>
+        document.querySelector("h1").innerText = "hello World";
+    </pre>
+    <hr />
+
+    <h3>5. Create three cards on HTML page and arrange them using flex property in row or horizontal direction and also create button at the bottom named "Change Flex direction". When user clicks on this button, the cards arrangement should be changed to vertical direction.</h3>
+    <pre>
+const btn = document.querySelector(".button");
+const row_button = document.querySelector(".row-button");
+
+btn.addEventListener("click", () => {
+  let row = document.querySelector(".flex-container");
+  row.style.flexDirection = "column";
+});
+
+row_button.addEventListener("click", () => {
+  let row = document.querySelector(".flex-container");
+  row.style.flexDirection = "row";
+});
+    </pre>
+    <hr />
+
+    <h3>6. What’s the difference between window vs document?</h3>
+    <pre style="overflow: scroll">
+        <p>
+The document object represent a web page that is loaded in the browser. By accessing the document object, we can access the element in the HTML page. With the help of document objects, we can add dynamic content to our web page. The document object can be accessed with a window.document.
+
+document.method_name;
+    
+The document object represent a web page that is loaded in the browser. By accessing the document object, we can access the element in the HTML page. With the help of document objects, we can add dynamic content to our web page. The document object can be accessed with a window.document
+    
+ window.property_name;
+        </p>
+       
+    </pre>
+    <hr />
+
+    <h3>7. Add one style attribute and give text color as red and id attribute and give the id value as "heading" in the above given h1 tag using DOM functions</h3>
+    <pre>
+    const heading = document.querySelector("h1");
+    heading.style.color = "red";
+    heading.setAttribute("id", "heading");
+    </pre>
+    <hr />
+
+    <h3>8. Create an HTML page having content as Hello world and a button named Replace Text. When user will click on this button page content should be changed to "Welcome to Elevation academy"</h3>
+    <pre>
+        document.querySelector("#change-btn").addEventListener("click", () => {
+        heading.innerText = "Welcome to Elevation Academy";
+    </pre>
+    <hr />
+
+    <h3>9. Write code to implement timer clock using JS -- display HH:MM:SS -- the time should keep updating every second</h3>
+    <pre>
+        setInterval(() => {
+            const date = new Date();
+            const hrs = date.getHours();
+            const min = date.getMinutes();
+            const sec = date.getSeconds();
+            const dateSection = hrs < 12 ? "AM" : "PM";
+          
+            document.querySelector("#hrs").innerHTML = ` ${dateSection}: ${hrs}  hrs `;
+            document.querySelector("#min").innerHTML = `${min}  min `;
+            document.querySelector("#sec").innerHTML = `${sec}  sec `;
+          }, 1000);
+    </pre>
+    <hr />
+
+    <h3>10. Create a select drop down for selecting Year 20-21, 21-22 etc. Print the item text selected</h3>
+    <pre>
+        document.addEventListener("change", ()=>{
+            const year = document.querySelector('#year').value
+            console.log(year)
+        })
+    </pre>
+    <hr />
+  </body>
+</html>
